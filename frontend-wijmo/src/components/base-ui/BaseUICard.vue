@@ -9,17 +9,16 @@
     export default{
         name: 'BaseUICard',
         data: () => ({
-            path: "",
             repository: null,
             value: [],
         }),
         created() {
-            this.repository = new BaseRepository(axios, this.path)
         },
         methods: {
-            getValue() {
-                this.value = this.repository.find();
-            }
+            async getValue(path) {
+                this.repository = new BaseRepository(axios, path);
+                this.value = await this.repository.find();
+            },
         },
     }
 </script>

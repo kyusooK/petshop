@@ -50,7 +50,7 @@
             <wj-flex-grid-column binding="name" header="상품명" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="description" header="상세설명" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
-        <IngredientsDetailGrid label="Ingredients" offline v-if="selectedRow" v-model="selectedRow.ingredients"/>
+        <IngredientDetailGrid label="Ingredients" offline v-if="selectedRow" v-model="selectedRow.ingredients"/>
         <v-col>
             <v-dialog
                 v-model="openDialog"

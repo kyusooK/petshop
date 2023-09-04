@@ -1,5 +1,5 @@
 <template>
-    <v-card outlined style="border-radius: 0; max-height:15vh; margin-top:-10px; padding-bottom:10px;">
+    <v-card outlined style="border-radius: 0; margin-top:-10px; padding-bottom:10px;">
         <v-card-title>
             GetProfile
         </v-card-title>

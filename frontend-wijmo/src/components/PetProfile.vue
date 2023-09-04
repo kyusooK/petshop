@@ -4,9 +4,9 @@
         <String label="Gender" v-model="value.gender" :editMode="editMode"/>
         <String label="Preferences" v-model="value.preferences" :editMode="editMode"/>
         <String label="Needs" v-model="value.needs" :editMode="editMode"/>
-        <int offline label="Age" v-model="value.age" :editMode="editMode" @change="change"/>
+        <Number offline label="Age" v-model="value.age" :editMode="editMode" @change="change"/>
         <PetType offline label="PetType" v-model="value.petType" :editMode="editMode" @change="change"/>
-        <AllegiesDetailGrid label="Allegies" offline v-model="value.allegies" :editMode="editMode" @change="change"/>
+        <AllegyDetailGrid label="Allegies" offline v-model="value.allegies" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
         <v-layout row justify-end>

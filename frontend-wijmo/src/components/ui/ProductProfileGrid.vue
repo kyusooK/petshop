@@ -39,7 +39,7 @@
             <wj-flex-grid-filter :filterColumns="['RowHeader','ingredients',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
         </wj-flex-grid>
-        <IngredientsDetailGrid label="Ingredients" offline v-if="selectedRow" v-model="selectedRow.ingredients"/>
+        <IngredientDetailGrid label="Ingredients" offline v-if="selectedRow" v-model="selectedRow.ingredients"/>
         <v-col>
             <v-dialog
                 v-model="openDialog"

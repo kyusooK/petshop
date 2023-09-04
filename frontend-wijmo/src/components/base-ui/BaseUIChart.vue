@@ -9,38 +9,42 @@
     export default{
         name: 'BaseUIChart',
         data: () => ({
-            path: "",
             repository: null,
             value: [],
-            options: null,
-            series: null,
-            labels: [],
-            data: [],
-            categories: [],
+            options: {
+                chart: {
+                    id: "barChart-bar"
+                },
+                xaxis: {
+                    categories: []
+                },
+                labels: [],
+            },
+            series: [],
         }),
         created() {
-            this.repository = new BaseRepository(axios, this.path)
         },
         methods: {
-            getValue() {
-                this.value = this.repository.find();
+            async getValue(path) {
+                this.repository = new BaseRepository(axios, path);
+                this.value = await this.repository.find();
             },
-            setValue(chartType) {
+            setValue(chartType, xaxis, data) {
                 if (chartType === "pie") {
                     if(this.value && this.value.length > 0) {
                         this.value.forEach((item) => {
                             if (item) {
-                                if (labels && labels.length > 0) {
-                                    labels.forEach((label) => {
-                                        if (item[label]) {
-                                            this.options.labels.push(item[label]);
+                                if (xaxis && xaxis.length > 0) {
+                                    xaxis.forEach((val) => {
+                                        if (item[val]) {
+                                            this.options.labels.push(item[val]);
                                         }
                                     })
                                 }
                                 if (data && data.length > 0) {
                                     data.forEach((val) => {
                                         if (item[val]) {
-                                            this.series.push(item[data]);
+                                            this.series.push(item[this.data]);
                                         }
                                     })
                                 }
@@ -48,13 +52,17 @@
                         });
                     }
                 } else {
+                    this.series = [{
+                        data: []
+                    }];
+
                     if(this.value && this.value.length > 0) {
                         this.value.forEach((item) => {
                             if (item) {
-                                if (categories && categories.length > 0) {
-                                    categories.forEach((category) => {
-                                        if (item[category]) {
-                                            this.options.xaxis.categories.push(item[category]);
+                                if (xaxis && xaxis.length > 0) {
+                                    xaxis.forEach((val) => {
+                                        if (item[val]) {
+                                            this.options.xaxis.categories.push(item[val]);
                                         }
                                     })
                                 }

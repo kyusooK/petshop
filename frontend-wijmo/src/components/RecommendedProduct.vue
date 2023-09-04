@@ -4,7 +4,7 @@
         <String label="Size" v-model="value.size" :editMode="editMode"/>
         <String label="Gender" v-model="value.gender" :editMode="editMode"/>
         <String label="Preferences" v-model="value.preferences" :editMode="editMode"/>
-        <int offline label="Age" v-model="value.age" :editMode="editMode" @change="change"/>
+        <Number offline label="Age" v-model="value.age" :editMode="editMode" @change="change"/>
         <PetProfileId offline label="PetProfileId" v-model="value.petProfileId" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>

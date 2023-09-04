@@ -13,6 +13,7 @@
                         
                         <v-list-item-content>
                             <v-list-item-title>
+                                {{item.id }}
                             </v-list-item-title>
                             <v-list-item-subtitle>
                                 Age :  {{item.age }}
@@ -86,7 +87,7 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['id'] = arr[4]; 
-                    
+                    obj['nameField'] = this.list[val].id; 
                     
                     
                     
